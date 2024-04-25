@@ -1,66 +1,77 @@
 package com.example.offerlagbe.Fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.offerlagbe.Adapter.NotificationAdapter;
+import com.example.offerlagbe.Model.NotificationModel;
 import com.example.offerlagbe.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Notification2Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class Notification2Fragment extends Fragment {
+    RecyclerView recyclerView;
+    ArrayList<NotificationModel> list;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public Notification2Fragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Notification2Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Notification2Fragment newInstance(String param1, String param2) {
-        Notification2Fragment fragment = new Notification2Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notification2, container, false);
+        View view = inflater.inflate(R.layout.fragment_notification2, container, false);
+
+        recyclerView = view.findViewById(R.id.notification2RV);
+
+        list = new ArrayList<>();
+        list.add(new NotificationModel(R.drawable.profile,"<b>Jubayer Emon</b> mentioned you in a comment: Nice Try!",
+                "just now"));
+        list.add(new NotificationModel(R.drawable.deaf,"<b>Billal Mia</b> liked you picture.",
+                "40 minutes ago"));
+        list.add(new NotificationModel(R.drawable.dennis,"<b>Saddam Hossen</b> commented on your post.",
+                "2 hours"));
+        list.add(new NotificationModel(R.drawable.homefragmentstory02,"<b>Tonmoy Chowdhury</b> mentioned you in a comment: try again",
+                "3 hours"));
+        list.add(new NotificationModel(R.drawable.homefragmentstory,"<b>M. Amin</b> mentioned you in a comment: try again",
+                "3 hours"));
+        list.add(new NotificationModel(R.drawable.profilefragment__profilepicture,"<b>Toukir Ahamed</b> mentioned you in a comment: well done",
+                "4 hours"));
+        list.add(new NotificationModel(R.drawable.profilefragment__profilecover,"<b>Munia Haque</b> mentioned you in a comment: eta tumi",
+                "6 hours"));
+        list.add(new NotificationModel(R.drawable.profilefragment__profilepicture2,"<b>Safa Khan</b> mentioned you in a comment: eid mubarak",
+                "6 hours"));
+        list.add(new NotificationModel(R.drawable.deaf,"<b>Hemon Khan</b> mentioned you in a comment: eta ami",
+                "9 hours"));
+        list.add(new NotificationModel(R.drawable.deaf,"<b>Farhad Khan</b> liked your cover photo",
+                "yesterday"));
+        list.add(new NotificationModel(R.drawable.deaf,"<b>Katrina Solaiman</b> mentioned you in a comment: try again",
+                "yesterday"));
+
+        NotificationAdapter adapter = new NotificationAdapter(list,getContext());
+        LinearLayoutManager layoutManager =  new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+
+
+        return view;
     }
 }
