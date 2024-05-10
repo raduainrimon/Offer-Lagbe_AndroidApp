@@ -5,9 +5,24 @@
     <color name="purple">#FFBB86FC</color>
     <color name="page_indicator">#9874a7</color>
     <color name="profilehomebackgourdfragment">#1b1b1b</color>
-    <color name="Flowergirl">#f498ad</color>
-
-
-
-
+    <color name="Flowergirl">#FFf498ad</color>
+    <color name="blue">#FF0000FF</color>
+    <color name="sky_blue">#87CEEB</color>
+    <color name="navy_blue">#000080</color>
+    <color name="baby_blue">#89cff0</color>
+    <color name="green">#FF00FF00</color>
+    <color name="lime_green">#32CD32</color>
+    <color name="forest_green">#228B22</color>
+    <color name="dark_green">#006400</color>
+    <color name="red">#FFFF0000</color>
+    <color name="maroon">#800000</color>
+    <color name="dark_red">#8B0000</color>
+    <color name="orange">#FFFFA500</color>
+    <color name="yellow">#FFFFFF00</color>
+    <color name="dim_grey">#FF696969</color>
+    <color name="lavender">#FFE6E6FA</color>
+    <color name="purple_500">#FF9C27B0</color>
+    <color name="purple_700">#FF7B1FA2</color>
+    <color name="teal_500">#FF009688</color>
+    <color name="teal_700">#FF00796B</color>
 </resources>
