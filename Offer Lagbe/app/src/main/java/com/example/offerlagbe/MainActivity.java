@@ -2,10 +2,12 @@ package com.example.offerlagbe;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Toast;
+
 import com.example.offerlagbe.Fragment.AddFragment;
 import com.example.offerlagbe.Fragment.HomeFragment;
 import com.example.offerlagbe.Fragment.NotificationFragment;
@@ -13,9 +15,6 @@ import com.example.offerlagbe.Fragment.ProfileFragment;
 import com.example.offerlagbe.Fragment.SearchFragment;
 import com.example.offerlagbe.databinding.ActivityMainBinding;
 import com.iammert.library.readablebottombar.ReadableBottomBar;
-import android.graphics.Color;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
@@ -27,11 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
-
-        // Set the title with ctan color
-        SpannableString spannableString = new SpannableString("My Profile");
-        spannableString.setSpan(new ForegroundColorSpan(Color.CYAN), 0, spannableString.length(), SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
-        setTitle(spannableString);
+        MainActivity.this.setTitle("My Profile");
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         binding.toolbar.setVisibility(View.GONE);
@@ -60,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                         binding.toolbar.setVisibility(View.GONE);
                         transaction.replace(R.id.container,new SearchFragment());
                         break;
-                    //Showing a notification on above of the page when we slide into it
+                        //Showing a notification on above of the page when we slide into it
                     case 4:
                         binding.toolbar.setVisibility(View.VISIBLE);
                         Toast.makeText(MainActivity.this, "Profile Selected", Toast.LENGTH_SHORT).show();
